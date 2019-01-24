@@ -14,9 +14,20 @@ feature 'Data entry:' do
   end
   scenario 'Can enter birthday' do
     visit('/')
-    fill_in :day, with: '09'
-    fill_in :month, with: '01'
+    fill_in :day, with: '9'
+    fill_in :month, with: '1'
     click_button 'Submit'
-    expect(page).to have_content '09 / 01'
+    expect(page).to have_content '9 / 1'
+  end
+end
+
+feature 'Birthday calculator:' do
+  scenario 'Can calculate days to go' do
+    visit('/')
+    fill_in :name, with: 'Will'
+    fill_in :day, with: '27'
+    fill_in :month, with: '1'
+    click_button 'Submit'
+    expect(page).to have_content '3 bears till'
   end
 end
